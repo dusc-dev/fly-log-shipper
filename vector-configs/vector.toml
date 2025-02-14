@@ -43,4 +43,4 @@ query.match = ['${SELECTOR_QUERY}'] # Name of your Flyio app.
 [sinks.datadog_metrics]
 type = "datadog_metrics"
 inputs = [ "flyio" ]
-default_api_key = "${DATADOG_API_KEY}"
+default_namespace = "fly"

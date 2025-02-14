@@ -1,7 +1,8 @@
 app = "fly-log-shipper"
+primary_region = "iad"
 
 [build]
-image = ghcr.io/dusc-dev/fly-log-shipper:latest
+image = "ghcr.io/dusc-dev/fly-log-shipper:latest"
 
 [metrics]
   port = 9598
