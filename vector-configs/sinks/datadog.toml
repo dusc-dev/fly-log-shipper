@@ -1,9 +1,19 @@
+[transforms.datadog_remap]
+  type = "remap"
+  inputs = ["log_json"]
+  source = '''
+  ddsource, err = get_env_var("DD_SOURCE")
+  if err == null {
+    .ddsource = ddsource
+  }
+  '''
+
 [sinks.datadog]
   # General
   type = "datadog_logs" # required
-  inputs = ["log_json"] # required
-  default_api_key = "${DATADOG_API_KEY}" # required
-  site = "${DATADOG_SITE:-datadoghq.com}" # optional
+  inputs = ["datadog_remap"] # required
+  default_api_key = "${DD_API_KEY}" # required
+  site = "${DD_SITE:-datadoghq.com}" # optional
   compression = "gzip" # optional, default
 
   # Healthcheck

@@ -4,6 +4,14 @@ Ship logs from fly to other providers using [NATS](https://docs.nats.io/) and [V
 
 In this repo you will find various [Vector Sinks](https://vector.dev/docs/reference/configuration/sinks/) along with the required fly config. The end result is a Fly.IO application that automatically reads your organisation logs and sends them to external providers.
 
+# DUSC Quick Start
+
+```
+fly apps create <app>
+fly secrets set ORG="<org>" ACCESS_TOKEN=$(fly auth token) DD_SOURCE="fly" DD_SITE="<dd site>" DD_API_KEY="<api key>" QUERY_SELECTOR="{app=\"some-app-name\"}" -a <app>
+fly deploy --region <region> -a <app>
+```
+
 # Quick start
 
 1. Create a new fly logger app based on our docker image
