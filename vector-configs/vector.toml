@@ -32,3 +32,15 @@
   type = "blackhole"
   inputs = ["log_json"]
   print_interval_secs = 100000
+
+[sources.flyio]
+type = "prometheus_scrape"
+endpoints = [ "https://api.fly.io/prometheus/${ORG-personal}/federate" ]
+auth.strategy = 'bearer'
+auth.token = '${ACCESS_TOKEN?}'
+query.match = ['{app="iex-app-db"}'] # Name of your Flyio app.
+
+[sinks.datadog_metrics]
+type = "datadog_metrics"
+inputs = [ "flyio" ]
+default_api_key = "${DATADOG_API_KEY}"
