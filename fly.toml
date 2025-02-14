@@ -1,7 +1,7 @@
-app = "iex-fly-log-shipper"
+app = "fly-log-shipper"
 
 [build]
-image = ghcr.io/interexchange/fly-log-shipper:latest
+image = ghcr.io/dusc-dev/fly-log-shipper:latest
 
 [metrics]
   port = 9598

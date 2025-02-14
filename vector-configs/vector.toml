@@ -38,7 +38,7 @@ type = "prometheus_scrape"
 endpoints = [ "https://api.fly.io/prometheus/${ORG-personal}/federate" ]
 auth.strategy = 'bearer'
 auth.token = '${ACCESS_TOKEN?}'
-query.match = ['{app="iex-app-db"}'] # Name of your Flyio app.
+query.match = ['${SELECTOR_QUERY}'] # Name of your Flyio app.
 
 [sinks.datadog_metrics]
 type = "datadog_metrics"
